@@ -7,7 +7,7 @@ bool year(int a);
 
 int main(){
   setlocale(LC_ALL,"Russian");
-  int a=1000,b=2000;
+  int a=1000,b=2100;
 
   for(int i=a;i<=b;i++){
     if(year(i))
