@@ -28,7 +28,13 @@ int main(){
       result=a*b;
       break;
     case '/'  :
-      result=a/b;
+      if(b!=0)
+        result=a/b;
+      else
+        cout<<"Деление на 0";
+      break;
+    default
+      cout<<"Неверная операция";
       break;
   }
   cout<<"Результат: "<<result;
