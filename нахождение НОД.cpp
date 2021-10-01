@@ -6,22 +6,43 @@ using namespace std;
 int main()
 {
   setlocale(LC_ALL,"Russian");
-  int a=0,b=0,result=0,i=0;
+  int pp=0,a=0,b=0,result=0,minimal=0;
 
-  cout<<"Поиск наибольшего общего делителя(НОД)"<<endl;
+  cout<<"Поиск наименьшего общего кратного(НОК)"<<endl;
+  cout<<"Выберите способ поиска:"<<endl;
+  cout<<"1 - перебор до 1000 вариантов"<<endl;
+  cout<<"2 - поиск через НОД"<<endl;
+  cin>>pp;
   cout<<"Введите два числа"<<endl;
-  cin>>a>>b;
-  a=(a<0?-a:a);
-  b=(b<0?-b:b);
+      cin>>a>>b;
+      a=(a<0?-a:a);
+      b=(b<0?-b:b);
+  int nod=0,i=0;
+  switch(pp){
+    case 1:
+      minimal=(a<b?a:b);
 
-  while(i<=((a<b)?a:b)){
-    i++;
-    if((b%i==0)&&(a%i==0))
-      result=i;
-    cout<<i<<endl;
+      for(int i=1;i<=a*b;i++){
+        if(((minimal*i)%a==0)&&((minimal*i)%b==0)&&(result==0))
+          result=minimal*i;
+      }
+      break;
+    case 2:
+      while(i<=((a<b)?a:b)){
+      i++;
+      if((b%i==0)&&(a%i==0))
+        nod=i;
+      }
+      result=a*b/nod;
+      break;
+    default:
+      cout<<"Выбран неверный пункт - "<<pp<<endl;
+      break;
   }
-
-  cout<<"НОД для "<<a<<" и "<<b<<" = "<<result<<endl;
+    if(result==0)
+        cout<<"НОК для "<<a<<" и "<<b<<" не найден"<<endl;
+      else
+        cout<<"НОК для "<<a<<" и "<<b<<" = "<<result<<endl;
 
 	return 0;
 }
