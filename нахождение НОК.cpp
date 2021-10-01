@@ -14,9 +14,9 @@ int main()
   cout<<"2 - поиск через НОД"<<endl;
   cin>>pp;
   cout<<"Введите два числа"<<endl;
-      cin>>a>>b;
-      a=(a<0?-a:a);
-      b=(b<0?-b:b);
+  cin>>a>>b;
+  a=(a<0?-a:a);
+  b=(b<0?-b:b);
   int nod=0,i=0;
   switch(pp){
     case 1:
