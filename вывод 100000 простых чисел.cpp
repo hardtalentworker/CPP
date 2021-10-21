@@ -3,23 +3,32 @@
 #include <cmath>
 using namespace std;
 
+bool simpleOrNot(int inTemp);
+
 int main()
 {
   setlocale(LC_ALL,"Russian");
-  int a=1,b=0;
+  //int a=1;
 
-  cout<<"Вывод 100 простых чисел"<<endl;
+  cout<<"Вывод 100000 простых чисел"<<endl;
   cout<<"Простые числа - "<<endl;
 
   for(int i=1;i<=100000;i++){
-    for(int j=1;j<=(i/2);j++){
-      if((i%j)==0)
-        b++;
-    }
-    if(b==1)
+    if(simpleOrNot(i))
       cout<<i<<" простое "<<endl;
-    b=0;
   }
 
 	return 0;
+}
+
+bool simpleOrNot(int inTemp){
+  int b=0;
+  for(int j=1;j<=(inTemp/2);j++){
+      if((inTemp%j)==0)
+        b++;
+    }
+    if(b==1)
+      return 1;
+    else
+      return 0;
 }
